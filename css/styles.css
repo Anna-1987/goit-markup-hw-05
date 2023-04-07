@@ -82,6 +82,14 @@ body {
 .menu:focus{
     color: var(--click-color); 
 }
+.activ-studio{
+    color: var(--click-color);
+}
+
+.activ-portfolio{
+    color: var(--click-color);
+}
+
 .activ-studio::after, 
 .activ-portfolio::after{
     content: '';
@@ -144,7 +152,7 @@ body {
     margin: 0 auto;
     background-color:var(--navyblue-color);
     background-image: linear-gradient(rgba(46, 47, 66, 0.7), 
-    rgba(46, 47, 66, 0.7)), 
+    rgba(46, 47, 66, 0.7)),
     url(../images/people-office\ 1.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -277,7 +285,7 @@ body {
     
 }
 .overley::after{
-    display:inline-block;
+    display:block;
     content: '';
 
     position: absolute;
@@ -285,16 +293,13 @@ body {
     width: 100%;
     height: 100%;
     background-color: var(--iris-color);
-     /* background: linear-gradient(0deg, rgba(77, 90, 229, 0.1),
-      rgba(77, 90, 229, 0.1)), url(4);
-     background-blend-mode: soft-light, normal;
-     mix-blend-mode: normal; */
+    
     transform: translateY(0);
-
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
-.card-portfolio:hover .overley::after{
+.card-portfolio:hover .overley::after,
+.card-portfolio:focus .overley::after{
     transform: translateY(-100%);
 }
 .overley-text{
@@ -311,16 +316,14 @@ body {
     color: var(--cloud-color);
     z-index: 1;
 
-    /* opacity: 0; */
     transform: translateY(300%);
-
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
-.card-portfolio:hover .overley-text{
-    /* opacity: 1; */
+.card-portfolio:hover .overley-text,
+.card-portfolio:focus .overley-text{
     transform: translateY(0);
-}
+} 
 
 /*--------------------------SECTION-3----------------------*/
 .list-do-h{
@@ -420,8 +423,9 @@ body {
     padding-bottom: 100px;
 }
 .icon-header-text{
+    font-weight: 500;
     font-size: 16px;
-    line-height: calc(24px / 16px);
+    line-height: 1.5;
     color: var(--white-color);
     margin-bottom: 16px;
 }
@@ -446,10 +450,10 @@ body {
     display: flex;
     gap: 120px;
 }
-.soc-link-footer{
+/* .soc-link-footer{
     position: relative;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+} */
 .soc-link-footer:hover,
 .soc-link-footer:focus{
     background-color: #31D0AA;
@@ -492,8 +496,8 @@ body {
 /* -----------------MODAL----------------- */
 .backdrop{
     position: fixed;
-    width: 1600px;
-    height: 677px;
+    width: 100%;
+    height: 100%;
     left: 0px;
     top: 0px;
     background-color:  rgba(46, 47, 66, 0.4);
@@ -507,7 +511,6 @@ body {
     height: 576px;
     left: 50%;
     top: 50%; 
-    transform: translate(-50%, -50%);
     padding: 24px;
 
     background-color: #FCFCFC;
@@ -523,15 +526,26 @@ body {
     transform: translate(-100%,-100%) scale(0) ;
 }
 .modal-btn{
+    position: absolute;
+    right: 24px;
     width: 24px;
     height: 24px;
     background-color: var(--cornflower-color);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    margin-left: auto;
-     display: flex; 
+   
+    display: flex; 
     align-items: center; 
     justify-content: center;
+    cursor: pointer;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-btn:hover,
+.modal-btn:focus{
+    background-color: var(--click-color);
+    fill: var(--white-color);
 }
 .is-hidden{
     opacity: 0;
